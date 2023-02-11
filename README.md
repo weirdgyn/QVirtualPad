@@ -43,3 +43,7 @@ There are also a number of static constants made public for reference use:
 - ```MIN_PAD_SIZE_RATIO```  (minimum pad size ratio, see above)
 - ```DEF_FOCAL_POS_RATIO``` (this is the position ratio of the focal point inside gradients)
 - ```DEF_MARKS_OFF_RATIO``` (this is the offset ratio of the direction marks drawn on background)
+
+If you are guessing how this widget may like:
+
+![QVirtualPad in all its beauty](images/screenshot1.png?raw=true "QVirtualPad")
