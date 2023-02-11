@@ -4,24 +4,24 @@ QVirtualPad is a Qt widget that implements an interactive virtual pad (or virtua
 if you like but I found it more resembling a pad).
 The installation/use is pretty straightforward, since the widget is distributed as source code
 at this moment the only steps you need is to download the two main source files:
-- qvirtualpad.h
-- qvirtualpad.cpp
+- ```qvirtualpad.h```
+- ```qvirtualpad.cpp```
 
 copy these files into you source code folder and the include them in you project.
-To use the widget you simply have to *promote* a widget in your ui to QVirtualPad class (referincing the correct header: qvirtualpad.h of course).
+To use the widget you simply have to *promote* a widget in your ui to ```QVirtualPad``` class (referincing the correct header: ```qvirtualpad.h``` of course).
 You don't need to make the widget square but for a better user experience the widget will always use a square footprint.
 Once placed in your ui you can opt between two usage mode:
 - event driven;
 - polling;
 
-In the event driven method you simply connect to the positionUpdate signal and then wait for the user to *move* the pad. At every movement you will receive the update event along with a QPointF argument with the current normalized axis value [-1..1].
+In the event driven method you simply connect to the positionUpdate signal and then wait for the user to *move* the pad. At every movement you will receive the update event along with a ```QPointF``` argument with the current normalized axis value [-1..1].
 
-If you opt for the polling method instead you simply have to call X() and Y() getters to acquire actual normalized axis values.
+If you opt for the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
 You can customize the look and behaviour of the widget trough its properties.
-You can find a detailed description of the code needed to use the widget in the associated Qt application (virtualpad.pro).
+You can find a detailed description of the code needed to use the widget in the associated Qt application (```virtualpad.pro```).
 
-For the sake of documentation this's a complete list of QVirtualPad widget properties and their usage:
+For the sake of documentation this's a complete list of ```QVirtualPad``` widget properties and their usage:
 
 - QColor **backgroundColor**: is the main color of the background gradient (default red).
 - QColor **backgroundFocusColor**: is the color of the focal point of the background gradient (default white).
