@@ -1,7 +1,7 @@
 # QVirtualPad
 
 QVirtualPad is a Qt widget that implements an interactive virtual pad (or virtual joystick 
-if you like but I found it more resembling a pad).
+if you like but I found that it resembles more a pad).
 The installation/use is pretty straightforward, since the widget is distributed as source code
 at this moment the only steps you need is to download the two main source files:
 - ```qvirtualpad.h```
