@@ -51,7 +51,7 @@ This's the widget running inside its associated Qt application.
 
 ## Known bugs/missing features
 
-- External deadzone: this's not working at the moment
+- ~~External deadzone: this's not working at the moment~~
 - ```Full``` marks setting: works as ```NSWE``` (missing diagonal directions) 
 
 ## TODO
