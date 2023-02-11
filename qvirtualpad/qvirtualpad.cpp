@@ -263,10 +263,12 @@ void QVirtualPad::updatePosition(double x, double y) {
     float _r1 = mWidgetFrame.width() / 2;
 
     if (_r > _r1) {
-      double _alfa = qAtan2(_dy, _dx);
+      double _alfa = - qAtan2(_dy, _dx) + M_PI/2;
 
-      x = qSin(_alfa) * _r1;
-      y = qCos(_alfa) * _r1;
+      if (_alfa != NAN) {
+        x = mWidgetFrame.center().x() + qSin(_alfa) * _r1;
+        y = mWidgetFrame.center().y() +  qCos(_alfa) * _r1;
+      }
     }
   }
 
