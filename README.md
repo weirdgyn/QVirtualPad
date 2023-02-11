@@ -34,7 +34,7 @@ For the sake of documentation this is a complete list of ```QVirtualPad``` widge
 - ```bool externalDeadZone```: this propery enables/disable the external circular dead zone (default: ```false```)
 - ```float deadZone```: internal dead zone radius (in normalized units default: ```0```)
 - ```Axis axis```: this property tells if the widget moves along two axis (```Both```, default) or just along one (```X```,```Y```)
-- ```Marks marks```: this property tells if you want direction marks depicted on the background you can choose between none (None, default), four indicators (NSWE) or eight indicators (Full). Please note that if you choose a single axis movement only the indicator of the movement available will be drawn.
+- ```Marks marks```: this property tells if you want direction marks depicted on the background you can choose between none (```None```, default), four indicators (```NSWE```) or eight indicators (```Full```). Please note that if you choose a single axis movement only the indicator of the free axis available movement  will be drawn.
 
 There are also a number of static constants made public for reference use:
 - ```DEF_PAD_SIZE_RATIO```  (default pad size ratio, see above)
@@ -52,7 +52,7 @@ This's the widget running inside its associated Qt application.
 ## Known bugs/missing features
 
 - External deadzone: this's not working at the moment
-- Full Marks setting: works as NSWE (missing diagonal directions) 
+- ```Full``` marks setting: works as ```NSWE``` (missing diagonal directions) 
 
 ## TODO
 
