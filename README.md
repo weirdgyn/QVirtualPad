@@ -6,6 +6,7 @@ The installation/use is pretty straightforward, since the widget is distributed 
 at this moment the only steps you need is to download the two main source files:
 - qvirtualpad.h
 - qvirtualpad.cpp
+
 copy these files into you source code folder and the include it in you project.
 To use the widget you simply add to 'promote' a widget in you ui to QVirtualPad class (referincing 
 the correct header: qvirtualpad.h of course).
