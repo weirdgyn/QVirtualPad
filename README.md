@@ -61,6 +61,9 @@ This's the widget running inside its associated Qt application.
 - Integration in Qt Designer (?!)
 - Translation
 - Docs (doxygen)
+
+## Greetings
+Thanks to everyone collaborating... special mention to my nephew Lorenzo for its help in fixing **External deadzone** feature.
 #
 
 Live long and prosper!
