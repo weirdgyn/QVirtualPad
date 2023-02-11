@@ -14,10 +14,11 @@ Once placed in your ui you can opt between two usage mode:
 - polling;
 
 In the event driven method you simply connect to the positionUpdate signal and then wait for the user to 'move' the pad. At every movement you will receive the update event along with a QPointF argument with the current normalized axis value [-1..1].
-If you opt for the polling method you simply have to use X() and Y() getters to acquire actual normalized axis values.
+
+If you opt for the polling method instead you simply have to call X() and Y() getters to acquire actual normalized axis values.
 You can customize the look and behaviour of the widget trough its properties.
-You can find a detailed description of the code needed to use the widget in the associated Qt application
-(virtualpad.pro).
+You can find a detailed description of the code needed to use the widget in the associated Qt application (virtualpad.pro).
+
 For the sake of documentation this's a complete list of QVirtualPad widget properties and their usage:
 
 - QColor backgroundColor: is the main color of the background gradient (default red).
