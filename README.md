@@ -10,8 +10,8 @@ copy these files into you source code folder and then include them in you projec
 To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
 You don't need to make the placeholder widget square but to enhance its look and feel the widget have beend designed to always _use_ a square footprint.
 Once placed in your UI you can choose between two usage mode:
-- event driven;
-- polling;
+- event driven
+- polling
 
 With event driven method you simply need to connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive an update event along with a ```QPointF``` argument with the current normalized axis value ```[-1..1]```.
 
