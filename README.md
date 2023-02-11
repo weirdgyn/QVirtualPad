@@ -13,7 +13,7 @@ Once placed in your ui you can choose between two usage mode:
 - event driven;
 - polling;
 
-In the event driven method you simply connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive the update event along with a ```QPointF``` argument with the current normalized axis value [-1..1].
+In the event driven method you simply connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive an update event along with a ```QPointF``` argument with the current normalized axis value [-1..1].
 
 If you choose the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
