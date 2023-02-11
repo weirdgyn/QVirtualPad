@@ -49,4 +49,22 @@ If you are guessing how this widget may look like:
 
 This's the widget running inside its associated Qt application.
 
+## Known bugs/missing features
+
+- External deadzone: this's not working at the moment
+- Full Marks setting: works as NSWE (missing diagonal directions) 
+
+## TODO
+
+- Distribute as subproject (.pri)
+- Distribute as library
+- Integration in Qt Designer (?!)
+- Translation
+- Docs (doxygen)
+#
+
+Live long and prosper!
+
+That's all folks.
+
 Bye by[t]e[s]...Weirdgyn!
