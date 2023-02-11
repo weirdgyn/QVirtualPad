@@ -54,11 +54,14 @@ This's the widget running inside its associated Qt application.
 - ```Full``` marks setting: works as ```NSWE``` (missing diagonal directions) 
 
 ## TODO
-- Distribute as subproject (.pri)
+- Distribute as subproject (```.pri```)
 - Distribute as library
-- Integration in Qt Designer (?!)
+- Integration in _Qt Designer_ (?!)
 - Translation
 - Docs (doxygen)
+
+## References
+[Qt framework](http://qt.io)
 
 ## Greetings
 Thanks to everyone collaborating... special mention to my nephew Lorenzo for its help in fixing **External deadzone** feature.
