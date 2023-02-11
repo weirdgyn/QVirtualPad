@@ -7,13 +7,13 @@ at this moment the only steps you need are to download the two main source files
 - ```qvirtualpad.cpp```
 
 copy these files into you source code folder and then include them in you project.
-To use the widget you simply have to *promote* a widget in your ui to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
-You don't need to make the widget square but for a better user experience the widget will always use a square footprint.
-Once placed in your ui you can choose between two usage mode:
+To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
+You don't need to make the placeholder widget square but to enhance its look and feel the widget have beend designed to always _use_ a square footprint.
+Once placed in your UI you can choose between two usage mode:
 - event driven;
 - polling;
 
-In the event driven method you simply connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive an update event along with a ```QPointF``` argument with the current normalized axis value ```[-1..1]```.
+With event driven method you simply need to connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive an update event along with a ```QPointF``` argument with the current normalized axis value ```[-1..1]```.
 
 If you choose the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
@@ -50,12 +50,10 @@ If you are guessing how this widget may look like:
 This's the widget running inside its associated Qt application.
 
 ## Known bugs/missing features
-
 - ~~External deadzone: this's not working at the moment~~
 - ```Full``` marks setting: works as ```NSWE``` (missing diagonal directions) 
 
 ## TODO
-
 - Distribute as subproject (.pri)
 - Distribute as library
 - Integration in Qt Designer (?!)
