@@ -28,9 +28,9 @@ For the sake of documentation this is a complete list of ```QVirtualPad``` widge
 - ```QColor padFocusColor```: is the color of the focal point of the pad gradient (default: ```Qt::white```).
 - ```QColor borderColor```: is the color of the external border of both background and pad (default: ```Qt::black```).
 - ```int borderWidth```: is the thickness of the external border (default: ```1```).
-- ```float opacity```: is the opacity of the widget itself (0 fully transparent 1 completely opaque: default: ```1```) 
+- ```float opacity```: is the opacity of the widget itself (```0``` fully transparent ```1``` completely opaque: default: ```1```) 
 - ```bool momentary```: this property tells if the pad will return to the center position when left or if it will stay in the last position reached (default: ```true```).
-- ```float padSizeRatio```: is the dimensional ratio of the pad against the widget size (minimum ```0.1```, maximum ```0.66```, default: ```0.5```)
+- ```float padSizeRatio```: is the dimensional ratio of the pad against the widget size (minimum ```0.1f```, maximum ```0.66f```, default: ```0.5f```)
 - ```bool externalDeadZone```: this propery enables/disable the external circular dead zone (default: ```false```)
 - ```float deadZone```: internal dead zone radius (in normalized units default: ```0```)
 - ```Axis axis```: this property tells if the widget moves along two axis (```Both```, default) or just along one (```X```,```Y```)
