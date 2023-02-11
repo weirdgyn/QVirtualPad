@@ -47,3 +47,7 @@ There are also a number of static constants made public for reference use:
 If you are guessing how this widget may like:
 
 ![QVirtualPad in all its beauty](images/screenshot1.png?raw=true "QVirtualPad")
+
+This's the widget running inside its reference test Qt application.
+
+Bye by[t]e[s]...Weirdgyn!
