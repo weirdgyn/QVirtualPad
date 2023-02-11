@@ -8,7 +8,7 @@ at this moment the only steps you need are to download the two main source files
 
 copy these files into you source code folder and then include them in you project.
 To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
-You don't need to make the placeholder widget square but to enhance its look and feel the widget have beend designed to always _use_ a square footprint.
+You don't need to make the placeholder widget square but to enhance its look & feel the widget have beend designed to always _use_ a square footprint.
 Once placed in your UI you can choose between two usage mode:
 - event driven
 - polling
@@ -47,7 +47,7 @@ If you are guessing how this widget may look like:
 
 ![QVirtualPad in all its beauty](images/screenshot1.png?raw=true "QVirtualPad")
 
-This's the widget running in its associated Qt application.
+This is the widget running in its associated Qt application.
 
 ## Known bugs/missing features
 - ~~External deadzone: this's not working at the moment~~
