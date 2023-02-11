@@ -356,7 +356,7 @@
   <customwidget>
    <class>QVirtualPad</class>
    <extends>QWidget</extends>
-   <header>qvirtualpad.h</header>
+   <header>qvirtualpad/qvirtualpad.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

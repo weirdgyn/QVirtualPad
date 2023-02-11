@@ -2,7 +2,7 @@
 #include <QtMath>
 
 #include "mainwindow.h"
-#include "qvirtualpad.h"
+#include "qvirtualpad/qvirtualpad.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
