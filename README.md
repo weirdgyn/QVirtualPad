@@ -17,7 +17,7 @@ With event driven method you simply need to connect to the ```positionUpdate``` 
 
 If you choose the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
-You can customize the look and behaviour of the widget trough its properties.
+You can customize the look and behaviour of the widget through its properties.
 You can find an example of the code needed to use this widget in the associated Qt application (```virtualpad.pro```).
 
 For the sake of documentation this is a complete list of ```QVirtualPad``` widget properties and their usage:
