@@ -52,6 +52,7 @@ This is the widget running in its associated Qt application.
 ## Known bugs/missing features
 - ~~External deadzone: this's not working at the moment~~
 - ```Full``` marks setting: works as ```NSWE``` (missing diagonal directions) 
+- Non square widget area lead to misplaced marks drawings.
 
 ## TODO
 - Distribute as subproject (```.pri```)
