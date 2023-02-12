@@ -8,12 +8,13 @@ at this moment the only steps you need are to download the two main source files
 
 copy these files into you source code folder and then include them in you project.
 To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
-You don't need to make the placeholder widget square but to enhance its look & feel the widget have beend designed to always _use_ a square footprint.
+You don't need to make the placeholder widget square but to enhance its look & feel ```QVirtualPad``` have beend designed to always _use_ a square footprint (inside assigned widget area).
 Once placed in your UI you can choose between two usage mode:
 - event driven
 - polling
 
 With event driven method you simply need to connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive an update event along with a ```QPointF``` argument with the current normalized axis value ```[-1..1]```.
+Axis ranges uses canonical math convention so x,y are 0 at origin/center of the pad and increase up to 1 respectively going right and up, simmetrically they decrease going left and down up to -1.
 
 If you choose the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
@@ -31,10 +32,10 @@ For the sake of documentation this is a complete list of ```QVirtualPad``` widge
 - ```float opacity```: is the opacity of the widget itself (```0``` fully transparent ```1``` completely opaque, default) 
 - ```bool momentary```: this property tells if the pad will return to the center position when left (```true```, default) or if it will stay in the last position reached (```false```).
 - ```float padSizeRatio```: is the dimensional ratio of the pad against the widget size (minimum ```0.1f```, maximum ```0.66f```, default: ```0.5f```)
-- ```bool externalDeadZone```: this propery enables/disable the external circular dead zone (default: ```false```)
+- ```bool externalDeadZone```: this propery enables/disable movement of the pad outside background zone (default: ```false```). Please note that also axis values are therefore limited.
 - ```float deadZone```: internal dead zone radius (in normalized units default: ```0```)
 - ```Axis axis```: this property tells if the widget moves along two axis (```Both```, default) or just along one (```X```,```Y```)
-- ```Marks marks```: this property tells if you want direction marks depicted on the background. You can choose between none (```None```, default), four indicators (```NSWE```) or eight indicators (```Full```). Please note that if you choose a single _axis_ mode only marks of free movements will be drawn.
+- ```Marks marks```: this property tells if you want direction marks depicted on the background. You can choose between none (```None```, default), four indicators (```NSWE```) or eight indicators (```Full```). Please note that if you choose a single _axis_ mode only marks on enabled movements will be drawn.
 
 There are also a number of static constants made public for reference use:
 - ```DEF_PAD_SIZE_RATIO```  (default pad size ratio, see above)
