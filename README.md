@@ -61,6 +61,7 @@ This is the widget running in its associated Qt application.
 - Integration in _Qt Designer_ (?!)
 - Translation
 - Docs (doxygen)
+- More features...
 
 ## References
 [Qt framework](http://qt.io)
