@@ -6,14 +6,10 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QWidget>
+#include <QtUiPlugin/QDesignerExportWidget>
 
-/* TODO:
- *    oval background shape  in single axis movement?
- *    Complete mmissingg marks (SW,NE,SE,NW)
- *    fix external deadzone
- */
 
-class QVirtualPad : public QWidget {
+class QDESIGNER_WIDGET_EXPORT QVirtualPad : public QWidget {
   Q_OBJECT
 
 public:
@@ -141,7 +137,7 @@ private:
   bool mClicked;
   QPoint mPadPosition;
   QPointF mValueAxis;
-  QGraphicsOpacityEffect mOpacityEffect = QGraphicsOpacityEffect(this);
+  QGraphicsOpacityEffect mOpacityEffect;
   float mBackgrounddFocalPosRatio;
   float mPadFocalPosRatio;
 

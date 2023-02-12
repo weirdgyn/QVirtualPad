@@ -3,11 +3,11 @@
 #include <QtMath>
 
 QVirtualPad::QVirtualPad(QWidget *parent)
-    : QWidget{parent}, mBorderWidth(1), mPadSizeRatio(DEF_PAD_SIZE_RATIO),
-      mMomentary(true), mBackgroundColor(Qt::red),
-      mBackgroundFocusColor(Qt::white), mPadColor(Qt::black),
-      mPadFocusColor(Qt::white), mBorderColor(Qt::black), mAxis(Axis::Both),
-      mOpacity(1), mExternalDeadZone(false), mDeadZone(0), mMarks(Marks::None) {
+    : QWidget{parent}, mOpacityEffect(new  QGraphicsOpacityEffect(this)), mBorderWidth(1),
+      mPadSizeRatio(DEF_PAD_SIZE_RATIO), mMomentary(true),
+      mBackgroundColor(Qt::red), mBackgroundFocusColor(Qt::white),
+      mPadColor(Qt::black), mPadFocusColor(Qt::white), mBorderColor(Qt::black),
+      mAxis(Axis::Both), mOpacity(1), mExternalDeadZone(false), mDeadZone(0),mMarks(Marks::None) {
   mClicked = false;
   mBackgrounddFocalPosRatio = DEF_FOCAL_POS_RATIO;
   mPadFocalPosRatio = DEF_FOCAL_POS_RATIO;
