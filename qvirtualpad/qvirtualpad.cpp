@@ -167,6 +167,7 @@ QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
 
 QPainterPath *QVirtualPad::createMarks() {
   QPainterPath *_marks;
+  double _x, _y;
 
   switch (mMarks) {
   case Marks::NSWE:
@@ -209,7 +210,19 @@ QPainterPath *QVirtualPad::createMarks() {
       _marks->addPath(*createMark(
           0, QPointF(0, (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
       // Diagonal
+        _x = (mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO * (M_SQRT2/2);
+        _y = (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO * (M_SQRT2/2);
+        _marks->addPath(*createMark(
+            315, QPointF(_x, _y)));
 
+        _marks->addPath(*createMark(
+            45, QPointF(-_x, _y)));
+
+        _marks->addPath(*createMark(
+            225, QPointF(_x, -_y)));
+
+        _marks->addPath(*createMark(
+            135, QPointF(-_x, -_y)));
       break;
     case Axis::X:
       _marks->addPath(*createMark(
