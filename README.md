@@ -66,6 +66,10 @@ This is the widget running in its associated Qt application.
 ## References
 [Qt framework](http://qt.io)
 
+## License
+Copyright 2023 Michele Santucci.
+This product is release under MIT License.
+
 ## Greetings
 Thanks to everyone collaborating... special mention to my nephew Lorenzo for its help in fixing **External deadzone** feature.
 #
