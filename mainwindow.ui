@@ -20,6 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>658</width>
+      <width>658</width>
       <height>389</height>
      </rect>
     </property>
@@ -259,6 +260,7 @@
         <widget class="QVirtualPad" name="vg" native="true">
          <property name="minimumSize">
           <size>
+           <width>400</width>
            <width>400</width>
            <height>300</height>
           </size>

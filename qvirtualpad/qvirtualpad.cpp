@@ -80,7 +80,7 @@ void QVirtualPad::paintEvent(QPaintEvent *event) {
 }
 
 void QVirtualPad::mousePressEvent(QMouseEvent *event) {
-  mClicked = true;
+  mClicked = true;          
 
   updatePosition(event->pos().x() - mWidgetFrame.center().x(),
                  event->pos().y() - mWidgetFrame.center().y());
