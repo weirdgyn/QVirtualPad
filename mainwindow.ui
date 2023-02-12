@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>586</width>
-    <height>450</height>
+    <width>677</width>
+    <height>408</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>558</width>
+      <width>658</width>
       <height>389</height>
      </rect>
     </property>
@@ -259,7 +259,7 @@
         <widget class="QVirtualPad" name="vg" native="true">
          <property name="minimumSize">
           <size>
-           <width>300</width>
+           <width>400</width>
            <height>300</height>
           </size>
          </property>

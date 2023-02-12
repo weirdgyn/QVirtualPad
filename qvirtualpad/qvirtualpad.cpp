@@ -80,7 +80,7 @@ void QVirtualPad::paintEvent(QPaintEvent *event) {
 }
 
 void QVirtualPad::mousePressEvent(QMouseEvent *event) {
-  mClicked = true;
+  mClicked = true;          
 
   updatePosition(event->pos().x(), event->pos().y());
 
@@ -122,20 +122,16 @@ QRectF QVirtualPad::getFrame() {
   QRectF _frame = QRectF();
   _frame.setSize(_widgetSize);
 
-  QPointF _offsetPoint = getWidgetFrameOffset(_widgetSize);
-  _frame.moveTopLeft(_offsetPoint);
-
-  return _frame;
-}
-
-QPointF QVirtualPad::getWidgetFrameOffset(QSizeF size) {
-  float _xOffset = (this->width() - size.width()) / 2;
-  float _yOffset = (this->height() - size.height()) / 2;
+  float _xOffset = (this->width() - _widgetSize.width()) / 2;
+  float _yOffset = (this->height() - _widgetSize.height()) / 2;
 
   _xOffset -= mBorderWidth;
   _yOffset -= mBorderWidth;
 
-  return QPointF(_xOffset, _yOffset);
+  QPointF _offsetPoint(_xOffset, _yOffset);
+  _frame.moveTopLeft(_offsetPoint);
+
+  return _frame;
 }
 
 QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
@@ -147,6 +143,7 @@ QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
   // Triangle
   _polygon << QPointF(-4, 0) << QPointF(0, 8) << QPointF(4, 0)
            << QPointF(-4, 0);
+  //
 
   double _scaleX =
       MARKS_SIZE_RATIO * mWidgetFrame.width() / _polygon.boundingRect().width();

@@ -112,7 +112,6 @@ protected:
 
   void resize();
   QRectF getFrame();
-  QPointF getWidgetFrameOffset(QSizeF widgetSize);
   void updatePosition(double x, double y);
   QPainterPath *createMarks();
   QPainterPath *createMark(double angle, QPointF offset);
