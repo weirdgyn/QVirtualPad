@@ -29,7 +29,7 @@ For the sake of documentation this is a complete list of ```QVirtualPad``` widge
 - ```QColor borderColor```: is the color of the external border of both background and pad area (default: ```Qt::black```).
 - ```int borderWidth```: is the thickness of border (default: ```1```).
 - ```float opacity```: is the opacity of the widget itself (```0``` fully transparent ```1``` completely opaque, default) 
-- ```bool momentary```: this property tells if the pad will return to the center position when left or if it will stay in the last position reached (default: ```true```).
+- ```bool momentary```: this property tells if the pad will return to the center position when left (default: ```true```) or if it will stay in the last position reached (```false```).
 - ```float padSizeRatio```: is the dimensional ratio of the pad against the widget size (minimum ```0.1f```, maximum ```0.66f```, default: ```0.5f```)
 - ```bool externalDeadZone```: this propery enables/disable the external circular dead zone (default: ```false```)
 - ```float deadZone```: internal dead zone radius (in normalized units default: ```0```)
