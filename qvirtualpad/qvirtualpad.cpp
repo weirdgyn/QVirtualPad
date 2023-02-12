@@ -129,8 +129,11 @@ QRectF QVirtualPad::getFrame() {
 }
 
 QPointF QVirtualPad::getWidgetFrameOffset(QSizeF size) {
-  float _xOffset = (this->width() - size.width()) / 2 - mBorderWidth;
-  float _yOffset = (this->height() - size.height()) / 2 - mBorderWidth;
+  float _xOffset = (this->width() - size.width()) / 2;
+  float _yOffset = (this->height() - size.height()) / 2;
+
+  _xOffset -= mBorderWidth;
+  _yOffset -= mBorderWidth;
 
   return QPointF(_xOffset, _yOffset);
 }
@@ -249,11 +252,11 @@ void QVirtualPad::updatePosition(double x, double y) {
   if (y > mWidgetFrame.bottom())
     y = mWidgetFrame.bottom();
 
-  if (x < mWidgetFrame.x())
-    x = mWidgetFrame.x();
+  if (x < mWidgetFrame.left())
+    x = mWidgetFrame.left();
 
-  if (y < mWidgetFrame.y())
-    y = mWidgetFrame.y();
+  if (y < mWidgetFrame.top())
+    y = mWidgetFrame.top();
 
   if (mExternalDeadZone) {
     int _dx = x - mWidgetFrame.center().x();
@@ -263,7 +266,7 @@ void QVirtualPad::updatePosition(double x, double y) {
     float _r1 = mWidgetFrame.width() / 2;
 
     if (_r > _r1) {
-      double _alfa = - qAtan2(_dy, _dx) + M_PI/2;
+      double _alfa = qAtan2(-_dy, _dx) + M_PI/2;
 
       if (_alfa != NAN) {
         x = mWidgetFrame.center().x() + qSin(_alfa) * _r1;
@@ -294,7 +297,7 @@ void QVirtualPad::updatePosition(double x, double y) {
   }
 
   mValueAxis.setX(2 * mValueAxis.x() - 1);
-  mValueAxis.setY(2 * mValueAxis.y() - 1);
+  mValueAxis.setY(-2 * mValueAxis.y() + 1);
 
   if (qSqrt(qPow(mValueAxis.x(), 2) + qPow(mValueAxis.y(), 2)) < mDeadZone) {
     mValueAxis.setX(0);
