@@ -46,7 +46,7 @@ There are also a number of static constants made public for reference use:
 
 If you are guessing how this widget may look like:
 
-![QVirtualPad in all its beauty](images/screenshot1.png?raw=true "QVirtualPad")
+![QVirtualPad in all its beauty](images/screenshot1.png?raw=true "QVirtualPad in all its beauty")
 
 This is the widget running in its associated Qt application.
 
