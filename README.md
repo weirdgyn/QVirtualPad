@@ -6,7 +6,7 @@ at this moment the only steps you need are to download the two main source files
 - [qvirtualpad.h](qvirtualpad/qvirtualpad.h)
 - [qvirtualpad.cpp](qvirtualpad/qvirtualpad.cpp)
 
-copy these files into you source code folder and then include them in you project.
+copy these files into your source code folder and then include them in you project.
 To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
 You don't need to make the placeholder widget square but to enhance its look & feel ```QVirtualPad``` have beend designed to always _use_ a square footprint (inside assigned widget area).
 Once placed in your UI you can choose between two usage mode:
