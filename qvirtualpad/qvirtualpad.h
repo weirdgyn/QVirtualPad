@@ -21,7 +21,7 @@ public:
   constexpr static const float MAX_PAD_SIZE_RATIO = 0.66f;
   constexpr static const float MIN_PAD_SIZE_RATIO = 0.1f;
   constexpr static const float DEF_FOCAL_POS_RATIO = 0.5f;
-  constexpr static const float DEF_MARKS_OFF_RATIO = 0.95f;
+  constexpr static const float DEF_MARKS_OFF_RATIO = 0.9f;
   constexpr static const float MARKS_SIZE_RATIO = 0.0286f;  // 1/35
 
   enum class Axis { Both = 0, X, Y };
@@ -112,7 +112,6 @@ protected:
 
   void resize();
   QRectF getFrame();
-  QPointF getWidgetFrameOffset(QSizeF widgetSize);
   void updatePosition(double x, double y);
   QPainterPath *createMarks();
   QPainterPath *createMark(double angle, QPointF offset);

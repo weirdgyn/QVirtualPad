@@ -82,7 +82,8 @@ void QVirtualPad::paintEvent(QPaintEvent *event) {
 void QVirtualPad::mousePressEvent(QMouseEvent *event) {
   mClicked = true;
 
-  updatePosition(event->pos().x(), event->pos().y());
+  updatePosition(event->pos().x() - mWidgetFrame.center().x(),
+                 event->pos().y() - mWidgetFrame.center().y());
 
   repaint();
 }
@@ -92,9 +93,10 @@ void QVirtualPad::mouseReleaseEvent(QMouseEvent *event) {
   mClicked = false;
 
   if (mMomentary)
-    updatePosition(mWidgetFrame.center().x(), mWidgetFrame.center().y());
+    updatePosition(0, 0);
   else
-    updatePosition(event->pos().x(), event->pos().y());
+    updatePosition(event->pos().x() - mWidgetFrame.center().x(),
+                   event->pos().y() - mWidgetFrame.center().y());
 
   repaint();
 }
@@ -103,7 +105,8 @@ void QVirtualPad::mouseMoveEvent(QMouseEvent *event) {
   if (!mClicked)
     return;
 
-  updatePosition(event->pos().x(), event->pos().y());
+  updatePosition(event->pos().x() - mWidgetFrame.center().x(),
+                 event->pos().y() - mWidgetFrame.center().y());
 
   repaint();
 }
@@ -111,7 +114,7 @@ void QVirtualPad::mouseMoveEvent(QMouseEvent *event) {
 void QVirtualPad::resize() {
   mWidgetFrame = getFrame();
 
-  updatePosition(mWidgetFrame.center().x(), mWidgetFrame.center().y());
+  updatePosition(0, 0);
 }
 
 QRectF QVirtualPad::getFrame() {
@@ -122,20 +125,16 @@ QRectF QVirtualPad::getFrame() {
   QRectF _frame = QRectF();
   _frame.setSize(_widgetSize);
 
-  QPointF _offsetPoint = getWidgetFrameOffset(_widgetSize);
-  _frame.moveTopLeft(_offsetPoint);
-
-  return _frame;
-}
-
-QPointF QVirtualPad::getWidgetFrameOffset(QSizeF size) {
-  float _xOffset = (this->width() - size.width()) / 2;
-  float _yOffset = (this->height() - size.height()) / 2;
+  float _xOffset = (this->width() - _widgetSize.width()) / 2;
+  float _yOffset = (this->height() - _widgetSize.height()) / 2;
 
   _xOffset -= mBorderWidth;
   _yOffset -= mBorderWidth;
 
-  return QPointF(_xOffset, _yOffset);
+  QPointF _offsetPoint(_xOffset, _yOffset);
+  _frame.moveTopLeft(_offsetPoint);
+
+  return _frame;
 }
 
 QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
@@ -147,6 +146,7 @@ QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
   // Triangle
   _polygon << QPointF(-4, 0) << QPointF(0, 8) << QPointF(4, 0)
            << QPointF(-4, 0);
+  //
 
   double _scaleX =
       MARKS_SIZE_RATIO * mWidgetFrame.width() / _polygon.boundingRect().width();
@@ -154,9 +154,11 @@ QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
   double _scaleY = MARKS_SIZE_RATIO * mWidgetFrame.height() /
                    _polygon.boundingRect().height();
 
+  _transform.translate(mWidgetFrame.center().x(), mWidgetFrame.center().y());
   _transform.translate(offset.x(), offset.y());
   _transform.scale(_scaleX, _scaleY);
   _transform.rotate(angle);
+
   QPolygonF _final = _transform.map(_polygon);
   _mark->addPolygon(_final);
 
@@ -172,33 +174,25 @@ QPainterPath *QVirtualPad::createMarks() {
     switch (mAxis) {
     case Axis::Both:
       _marks->addPath(*createMark(
-          90, QPointF(mWidgetFrame.width() * (1 - DEF_PAD_SIZE_RATIO),
-                      mWidgetFrame.center().y())));
-      _marks->addPath(
-          *createMark(-90, QPointF(mWidgetFrame.right() * DEF_MARKS_OFF_RATIO,
-                                   mWidgetFrame.center().y())));
+          90, QPointF((-mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
       _marks->addPath(*createMark(
-          180, QPointF(mWidgetFrame.center().x(),
-                       mWidgetFrame.height() * (1 - DEF_MARKS_OFF_RATIO))));
-      _marks->addPath(
-          *createMark(0, QPointF(mWidgetFrame.center().x(),
-                                 mWidgetFrame.bottom() * DEF_MARKS_OFF_RATIO)));
+          -90, QPointF((mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
+      _marks->addPath(*createMark(
+          180, QPointF(0, (-mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
+      _marks->addPath(*createMark(
+          0, QPointF(0, (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
       break;
     case Axis::X:
       _marks->addPath(*createMark(
-          90, QPointF(mWidgetFrame.width() * (1 - DEF_MARKS_OFF_RATIO),
-                      mWidgetFrame.center().y())));
-      _marks->addPath(
-          *createMark(-90, QPointF(mWidgetFrame.right() * DEF_MARKS_OFF_RATIO,
-                                   mWidgetFrame.center().y())));
+          90, QPointF((-mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
+      _marks->addPath(*createMark(
+          -90, QPointF((mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
       break;
     case Axis::Y:
       _marks->addPath(*createMark(
-          180, QPointF(mWidgetFrame.center().x(),
-                       mWidgetFrame.height() * (1 - DEF_MARKS_OFF_RATIO))));
-      _marks->addPath(
-          *createMark(0, QPointF(mWidgetFrame.center().x(),
-                                 mWidgetFrame.bottom() * DEF_MARKS_OFF_RATIO)));
+          180, QPointF(0, (-mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
+      _marks->addPath(*createMark(
+          0, QPointF(0, (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
       break;
     }
     break;
@@ -207,33 +201,27 @@ QPainterPath *QVirtualPad::createMarks() {
     switch (mAxis) {
     case Axis::Both:
       _marks->addPath(*createMark(
-          90, QPointF(mWidgetFrame.width() * (1 - DEF_MARKS_OFF_RATIO),
-                      mWidgetFrame.center().y())));
-      _marks->addPath(
-          *createMark(-90, QPointF(mWidgetFrame.right() * DEF_MARKS_OFF_RATIO,
-                                   mWidgetFrame.center().y())));
+          90, QPointF((-mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
       _marks->addPath(*createMark(
-          180, QPointF(mWidgetFrame.center().x(),
-                       mWidgetFrame.height() * (1 - DEF_MARKS_OFF_RATIO))));
-      _marks->addPath(
-          *createMark(0, QPointF(mWidgetFrame.center().x(),
-                                 mWidgetFrame.bottom() * DEF_MARKS_OFF_RATIO)));
+          -90, QPointF((mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
+      _marks->addPath(*createMark(
+          180, QPointF(0, (-mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
+      _marks->addPath(*createMark(
+          0, QPointF(0, (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
+      // Diagonal
+
       break;
     case Axis::X:
       _marks->addPath(*createMark(
-          90, QPointF(mWidgetFrame.width() * (1 - DEF_MARKS_OFF_RATIO),
-                      mWidgetFrame.center().y())));
-      _marks->addPath(
-          *createMark(-90, QPointF(mWidgetFrame.right() * DEF_MARKS_OFF_RATIO,
-                                   mWidgetFrame.center().y())));
+          90, QPointF((-mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
+      _marks->addPath(*createMark(
+          -90, QPointF((mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO, 0)));
       break;
     case Axis::Y:
       _marks->addPath(*createMark(
-          180, QPointF(mWidgetFrame.center().x(),
-                       mWidgetFrame.height() * (1 - DEF_MARKS_OFF_RATIO))));
-      _marks->addPath(
-          *createMark(0, QPointF(mWidgetFrame.center().x(),
-                                 mWidgetFrame.bottom() * DEF_MARKS_OFF_RATIO)));
+          180, QPointF(0, (-mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
+      _marks->addPath(*createMark(
+          0, QPointF(0, (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
       break;
     }
     break;
@@ -246,58 +234,55 @@ QPainterPath *QVirtualPad::createMarks() {
 }
 
 void QVirtualPad::updatePosition(double x, double y) {
-  if (x > mWidgetFrame.right())
-    x = mWidgetFrame.right();
+  if (x > mWidgetFrame.width() / 2)
+    x = mWidgetFrame.width() / 2;
 
-  if (y > mWidgetFrame.bottom())
-    y = mWidgetFrame.bottom();
+  if (y > mWidgetFrame.height() / 2)
+    y = mWidgetFrame.height() / 2;
 
-  if (x < mWidgetFrame.left())
-    x = mWidgetFrame.left();
+  if (x <= -mWidgetFrame.width() / 2)
+    x = -mWidgetFrame.width() / 2;
 
-  if (y < mWidgetFrame.top())
-    y = mWidgetFrame.top();
+  if (y <= -mWidgetFrame.width() / 2)
+    y = -mWidgetFrame.height() / 2;
 
   if (mExternalDeadZone) {
-    int _dx = x - mWidgetFrame.center().x();
-    int _dy = y - mWidgetFrame.center().y();
-
-    float _r = qSqrt(qPow(_dx, 2) + qPow(_dy, 2));
+    float _r = qSqrt(qPow(x, 2) + qPow(y, 2));
     float _r1 = mWidgetFrame.width() / 2;
 
     if (_r > _r1) {
-      double _alfa = qAtan2(-_dy, _dx) + M_PI/2;
+      double _alfa = qAtan2(-y, x) + M_PI / 2;
 
       if (_alfa != NAN) {
-        x = mWidgetFrame.center().x() + qSin(_alfa) * _r1;
-        y = mWidgetFrame.center().y() +  qCos(_alfa) * _r1;
+        x = qSin(_alfa) * _r1;
+        y = qCos(_alfa) * _r1;
       }
     }
   }
 
   switch (mAxis) {
   case Axis::Both:
-    mPadPosition.setX(x);
-    mPadPosition.setY(y);
+    mPadPosition.setX(mWidgetFrame.center().x() + x);
+    mPadPosition.setY(mWidgetFrame.center().y() + y);
     mValueAxis.setX(x / mWidgetFrame.width());
     mValueAxis.setY(y / mWidgetFrame.height());
     break;
   case Axis::X:
-    mPadPosition.setX(x);
+    mPadPosition.setX(mWidgetFrame.center().x() + x);
     mPadPosition.setY(mWidgetFrame.center().y());
     mValueAxis.setX(x / mWidgetFrame.width());
-    mValueAxis.setY(mWidgetFrame.center().y() / mWidgetFrame.height());
+    mValueAxis.setY(0);
     break;
   case Axis::Y:
     mPadPosition.setX(mWidgetFrame.center().x());
-    mPadPosition.setY(y);
-    mValueAxis.setX(mWidgetFrame.center().x() / mWidgetFrame.width());
+    mPadPosition.setY(mWidgetFrame.center().y() + y);
+    mValueAxis.setX(0);
     mValueAxis.setY(y / mWidgetFrame.height());
     break;
   }
 
-  mValueAxis.setX(2 * mValueAxis.x() - 1);
-  mValueAxis.setY(-2 * mValueAxis.y() + 1);
+  mValueAxis.setX(2 * mValueAxis.x());
+  mValueAxis.setY(-2 * mValueAxis.y());
 
   if (qSqrt(qPow(mValueAxis.x(), 2) + qPow(mValueAxis.y(), 2)) < mDeadZone) {
     mValueAxis.setX(0);
