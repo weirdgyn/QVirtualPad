@@ -14,6 +14,7 @@ Once placed in your UI you can choose between two usage mode:
 - polling
 
 With event driven method you simply need to connect to the ```positionUpdate``` signal and then wait for the user to *move* the pad. At every movement you will receive an update event along with a ```QPointF``` argument with the current normalized axis value ```[-1..1]```.
+Axis ranges uses canonical math convention so x,y are 0 at origin/center of the pad and increase up to 1 respectively going right and up, simmetrically they decrease going left and down up to -1.
 
 If you choose the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
