@@ -107,6 +107,7 @@ protected:
   void mouseMoveEvent(QMouseEvent *event);
 
   void resize();
+  void center();
   QRectF getFrame();
   void updatePosition(double x, double y);
   QPainterPath *createMarks();
