@@ -10,12 +10,10 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp \
-    qvirtualpad/qvirtualpad.cpp
+    mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h \
-    qvirtualpad/qvirtualpad.h
+    mainwindow.h
     
 FORMS += \
     mainwindow.ui
@@ -24,3 +22,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += icons.qrc
+
+include (qvirtualpad/qvirtualpad.pri)

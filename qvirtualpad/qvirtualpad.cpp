@@ -56,7 +56,7 @@ QVirtualPad::Marks QVirtualPad::StringToMarks(QString marks) {
   else if (marks.toLower() == "full")
     return Marks::Full;
   else // if(marks.toLower()=="none")
-    return Marks::None;
+      return Marks::None;
 }
 
 void QVirtualPad::resizeEvent(QResizeEvent *event) {

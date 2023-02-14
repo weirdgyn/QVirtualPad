@@ -18,8 +18,11 @@ INSTALLS += target
 
 }
 
-HEADERS     = qvirtualpad/qvirtualpad.h \
-              virtualpadplugin.h
-SOURCES     = qvirtualpad/qvirtualpad.cpp \
-              virtualpadplugin.cpp
+HEADERS     = virtualpadplugin.h
+SOURCES     = virtualpadplugin.cpp
 #!
+
+RESOURCES += \
+    icons.qrc
+
+include (qvirtualpad/qvirtualpad.pri)

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/virtualpad.ico</file>
+    </qresource>
+</RCC>

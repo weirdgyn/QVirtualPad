@@ -22,7 +22,7 @@ QString VirtualPadPlugin::group() const {
   return QStringLiteral("Custom widgets");
 }
 
-QIcon VirtualPadPlugin::icon() const { return QIcon(); }
+QIcon VirtualPadPlugin::icon() const { return QIcon(QLatin1String(":/virtualpad.ico")); }
 
 QString VirtualPadPlugin::toolTip() const { return QString(); }
 
