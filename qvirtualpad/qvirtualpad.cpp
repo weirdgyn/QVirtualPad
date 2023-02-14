@@ -3,11 +3,12 @@
 #include <QtMath>
 
 QVirtualPad::QVirtualPad(QWidget *parent)
-    : QWidget{parent}, mOpacityEffect(new  QGraphicsOpacityEffect(this)), mBorderWidth(1),
-      mPadSizeRatio(DEF_PAD_SIZE_RATIO), mMomentary(true),
+    : QWidget{parent}, mOpacityEffect(new QGraphicsOpacityEffect(this)),
+      mBorderWidth(1), mPadSizeRatio(DEF_PAD_SIZE_RATIO), mMomentary(true),
       mBackgroundColor(Qt::red), mBackgroundFocusColor(Qt::white),
       mPadColor(Qt::black), mPadFocusColor(Qt::white), mBorderColor(Qt::black),
-      mAxis(Axis::Both), mOpacity(1), mExternalDeadZone(false), mDeadZone(0),mMarks(Marks::None) {
+      mAxis(Axis::Both), mOpacity(1), mExternalDeadZone(false), mDeadZone(0),
+      mMarks(Marks::None) {
   mClicked = false;
   mBackgrounddFocalPosRatio = DEF_FOCAL_POS_RATIO;
   mPadFocalPosRatio = DEF_FOCAL_POS_RATIO;
@@ -80,7 +81,7 @@ void QVirtualPad::paintEvent(QPaintEvent *event) {
 }
 
 void QVirtualPad::mousePressEvent(QMouseEvent *event) {
-  mClicked = true;          
+  mClicked = true;
 
   updatePosition(event->pos().x() - mWidgetFrame.center().x(),
                  event->pos().y() - mWidgetFrame.center().y());
@@ -116,6 +117,8 @@ void QVirtualPad::resize() {
 
   updatePosition(0, 0);
 }
+
+void QVirtualPad::center() { updatePosition(0, 0); }
 
 QRectF QVirtualPad::getFrame() {
   int _size = qMin(this->width(), this->height()) - (mBorderWidth * 2);
@@ -210,19 +213,15 @@ QPainterPath *QVirtualPad::createMarks() {
       _marks->addPath(*createMark(
           0, QPointF(0, (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO)));
       // Diagonal
-        _x = (mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO * (M_SQRT2/2);
-        _y = (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO * (M_SQRT2/2);
-        _marks->addPath(*createMark(
-            315, QPointF(_x, _y)));
+      _x = (mWidgetFrame.width() / 2) * DEF_MARKS_OFF_RATIO * (M_SQRT2 / 2);
+      _y = (mWidgetFrame.height() / 2) * DEF_MARKS_OFF_RATIO * (M_SQRT2 / 2);
+      _marks->addPath(*createMark(315, QPointF(_x, _y)));
 
-        _marks->addPath(*createMark(
-            45, QPointF(-_x, _y)));
+      _marks->addPath(*createMark(45, QPointF(-_x, _y)));
 
-        _marks->addPath(*createMark(
-            225, QPointF(_x, -_y)));
+      _marks->addPath(*createMark(225, QPointF(_x, -_y)));
 
-        _marks->addPath(*createMark(
-            135, QPointF(-_x, -_y)));
+      _marks->addPath(*createMark(135, QPointF(-_x, -_y)));
       break;
     case Axis::X:
       _marks->addPath(*createMark(
@@ -400,6 +399,7 @@ void QVirtualPad::setExternalDeadZone(bool externalDeadZone) {
     return;
   mExternalDeadZone = externalDeadZone;
   emit externalDeadZoneChanged();
+  center();
   repaint();
 }
 
@@ -440,6 +440,7 @@ void QVirtualPad::setAxis(QVirtualPad::Axis axis) {
     return;
   mAxis = axis;
   emit axisChanged();
+  center();
   repaint();
 }
 
@@ -450,6 +451,7 @@ void QVirtualPad::setMomentary(bool momentary) {
     return;
   mMomentary = momentary;
   emit momentaryChanged();
+  center();
   repaint();
 }
 
