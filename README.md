@@ -61,7 +61,7 @@ This is the widget running in its associated Qt application.
 
 ## TODO
 - ~~Distribute as Qt subproject (```.pri```)~~
-- Distribute as library
+- Distribute as library/plugin
 - Integration in _Qt Designer_ (?!)
 - Translation
 - Docs (doxygen)
