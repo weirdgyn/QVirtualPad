@@ -60,7 +60,7 @@ This is the widget running in its associated Qt application.
 - ~~Non square widget area lead to misplaced marks drawings (top or left) and axis values~~.
 
 ## TODO
-- ~~Distribute as Qt subproject~~ (```.pri```)
+- ~~Distribute as Qt subproject (.pri)~~
 - Distribute as library/plugin
 - Integration in _Qt Designer_ (?!)
 - Translation
