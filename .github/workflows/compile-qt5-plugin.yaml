@@ -18,6 +18,6 @@ jobs:
       - name: Compress
         run: zip --junk-paths qt5-plugin.zip README.md LICENSE.md libvirtualpadplugin.so qtvirtualpad/qtvirtualpad.h
       - name: Release
-      - uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1
         with:
           artifacts: "qt5-plugin.zip"
