@@ -2,7 +2,7 @@ name: compile-plugin
 run-name: ${{ github.actor }} compiling VirtualPad plugin
 on: [push]
 jobs:
-  check-bats-version:
+  compile-plugin:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,3 +13,4 @@ jobs:
             host: 'linux'
             target: 'desktop'
             dir: '${{ github.workspace }}/'
+      - run: qmake virtualplugin.pro && make
