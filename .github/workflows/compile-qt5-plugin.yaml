@@ -1,0 +1,26 @@
+name: compile-qt5-plugin
+run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 5.9.5)
+on: [push]
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+            version: '5.9.5'
+            host: 'linux'
+            target: 'desktop'
+            dir: '${{ github.workspace }}/'
+      - name: Build
+        run: qmake virtualpadplugin.pro && make
+      - name: Release
+        uses: actions/upload-artifact@v3
+        with:
+            name: qt5-plugin
+            path: |
+                  README.md
+                  LICENSE.md
+                  libvirtualpadplugin.so
+                  qtvirtualpad/qtvirtualpad.h
