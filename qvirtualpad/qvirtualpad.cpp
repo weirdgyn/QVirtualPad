@@ -121,7 +121,7 @@ void QVirtualPad::resize() {
 void QVirtualPad::center() { updatePosition(0, 0); }
 
 QRectF QVirtualPad::getFrame() {
-  int _size = qMin(this->width(), this->height()) - (mBorderWidth * 2);
+  int _size = qMin(this->width(), this->height()) - (mBorderWidth);
 
   QSizeF _widgetSize = QSizeF(_size, _size);
 
@@ -130,9 +130,6 @@ QRectF QVirtualPad::getFrame() {
 
   float _xOffset = (this->width() - _widgetSize.width()) / 2;
   float _yOffset = (this->height() - _widgetSize.height()) / 2;
-
-  _xOffset -= mBorderWidth;
-  _yOffset -= mBorderWidth;
 
   QPointF _offsetPoint(_xOffset, _yOffset);
   _frame.moveTopLeft(_offsetPoint);
