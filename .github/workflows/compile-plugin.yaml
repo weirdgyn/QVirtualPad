@@ -19,5 +19,7 @@ jobs:
         run: zip --junk-paths qt6-plugin.zip README.md LICENSE.md libvirtualpadplugin.so qtvirtualpad/qtvirtualpad.h
       - name: Release
         uses: ncipollo/release-action@v1
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
         with:
-          artifacts: "qt6-plugin.zip"
+          files: qt6-plugin.zip
