@@ -1,0 +1,15 @@
+name: compile-plugin
+run-name: ${{ github.actor }} compiling VirtualPad plugin
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+            version: '6.4.0'
+            host: 'linux'
+            target: 'desktop'
+            dir: '${{ github.workspace }}/'
