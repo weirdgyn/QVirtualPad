@@ -15,12 +15,25 @@ jobs:
             dir: '${{ github.workspace }}/'
       - name: Build
         run: qmake virtualpadplugin.pro && make
-      - name: Release
-        uses: actions/upload-artifact@v3
+      - name: Compress
+        run: zip --junk-paths qt5-plugin.zip README.md LICENSE.md libvirtualpadplugin.so qtvirtualpad/qtvirtualpad.h
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            name: qt5-plugin
-            path: |
-                  README.md
-                  LICENSE.md
-                  libvirtualpadplugin.so
-                  qtvirtualpad/qtvirtualpad.h
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./qt5-plugin.zip
+          asset_name: qt5-plugin.zip
+          asset_content_type: application/zip
