@@ -1,12 +1,16 @@
 # QVirtualPad
 
 QVirtualPad is a Qt5 widget that implements an interactive virtual pad (or virtual joystick if you like but I found that it resembles more a pad).
-The installation/use is pretty straightforward, since the widget is distributed as source code
-at this moment the only steps you need are to download the two main source files:
+
+The installation/use is pretty straightforward, since the widget is distributed as source code at this moment the only steps you need are to download the two main source files:
 - [qvirtualpad.h](qvirtualpad/qvirtualpad.h)
 - [qvirtualpad.cpp](qvirtualpad/qvirtualpad.cpp)
 
 copy these files into your source code folder and then include them in you project.
+
+15/02/2023 - Update: QVirtualPad now allows to include the source code folder as a subroject trough ```include``` directive.
+Download ```qvirtualpad``` directory into your application source folder and then add ```include (qvirtualpad/qvirtualpad.pri)``` line to your .pro file.
+
 To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
 You don't need to make the placeholder widget square but to enhance its look & feel ```QVirtualPad``` have beend designed to always _use_ a square footprint (inside assigned widget area).
 Once placed in your UI you can choose between two usage mode:
@@ -56,8 +60,8 @@ This is the widget running in its associated Qt application.
 - ~~Non square widget area lead to misplaced marks drawings (top or left) and axis values~~.
 
 ## TODO
-- Distribute as Qt subproject (```.pri```)
-- Distribute as library
+- ~~Distribute as Qt subproject (.pri)~~
+- Distribute as library/plugin
 - Integration in _Qt Designer_ (?!)
 - Translation
 - Docs (doxygen)
