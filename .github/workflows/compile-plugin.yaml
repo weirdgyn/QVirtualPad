@@ -1,8 +1,8 @@
-name: compile-plugin
-run-name: ${{ github.actor }} compiling VirtualPad plugin
+name: compile-qt6-plugin
+run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 6.4.0)
 on: [push]
 jobs:
-  compile-plugin:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,6 +13,13 @@ jobs:
             host: 'linux'
             target: 'desktop'
             dir: '${{ github.workspace }}/'
-      - name: Qmake
-        working-directory: ./
+      - name: Build
         run: qmake virtualpadplugin.pro && make
+      - name: Release
+        uses: actions/upload-artifact@v3
+        with:
+            name: plugin
+            path: README.md
+            path: LICENSE.md
+            path: libvirtualpadplugin.so
+            path: qtvirtualpad/qtvirtualpad.h
