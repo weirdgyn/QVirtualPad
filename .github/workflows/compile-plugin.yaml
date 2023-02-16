@@ -13,5 +13,5 @@ jobs:
             host: 'linux'
             target: 'desktop'
             dir: '${{ github.workspace }}/'
-      - run: cd /home/runner/work/QVirtualPad/QVirtualPad            
+      - run: cd /home/runner/work/QVirtualPad            
       - run: qmake virtualplugin.pro && make
