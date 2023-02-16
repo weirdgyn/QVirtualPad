@@ -17,18 +17,7 @@ jobs:
         run: qmake virtualpadplugin.pro && make
       - name: Compress
         run: zip --junk-paths qt5-plugin.zip README.md LICENSE.md libvirtualpadplugin.so qtvirtualpad/qtvirtualpad.h
-      - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
       - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+      - uses: ncipollo/release-action@v1
         with:
-          files: qt5-plugin.zip
+          artifacts: "qt5-plugin.zip"
