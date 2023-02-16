@@ -19,7 +19,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
             name: plugin
-            path: README.md
-            path: LICENSE.md
-            path: libvirtualpadplugin.so
-            path: qtvirtualpad/qtvirtualpad.h
+            path: |
+                  README.md
+                  LICENSE.md
+                  libvirtualpadplugin.so
+                  qtvirtualpad/qtvirtualpad.h
