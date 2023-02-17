@@ -1,6 +1,6 @@
 QT          += widgets uiplugin
 
-CONFIG += c++17
+CONFIG += c++11
 
 QTDIR_build {
 # This is only for the Qt build. Do not use externally. We mean it.
