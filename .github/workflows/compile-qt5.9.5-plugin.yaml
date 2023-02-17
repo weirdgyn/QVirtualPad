@@ -1,5 +1,5 @@
 name: compile-qt5-plugin
-run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 5.12.8)
+run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 5.9.5)
 on: [push]
 jobs:
   build-and-release:
@@ -9,7 +9,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-            version: '5.12.8'
+            version: '5.9.5'
             host: 'linux'
             target: 'desktop'
             dir: '${{ github.workspace }}/'

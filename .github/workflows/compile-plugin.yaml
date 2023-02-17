@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 6.
 on: [push]
 jobs:
   build-and-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Install Qt
