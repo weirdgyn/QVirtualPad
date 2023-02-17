@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 #include "qvirtualpad/qvirtualpad.h"
 #include "ui_mainwindow.h"
+#include <memory>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow) {
