@@ -16,7 +16,7 @@ Please note that if your Qt release is different from the release on which is ba
 If everything goes fine QVirtualPad widget will be available at the very bottom of QtCreator widget pallette (Custom Widgets folder).
 
 If you have installed succesfully the plugin you can enjoy the full user experience as you can drop QVirtualPad into your form straight form the pallette in QtCreator (or QtDesigner), there you can manage properties as any other widget.
-If you are using QVirtualPad trough source code then you can add the widget to the ui programatically or you have to *promote* a widget _placeholder_ in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
+If you are using QVirtualPad trough source code then you can add the widget to the UI programatically or you have to *promote* a widget _placeholder_ in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
 You don't need to make the _placeholder_ square but to enhance its look & feel ```QVirtualPad``` have beend designed to always _use_ a square footprint (inside assigned widget area).
 Besides the way you placed QVirtualPad in your UI you can choose between two usage mode:
 - event driven
