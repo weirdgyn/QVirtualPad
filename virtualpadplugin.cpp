@@ -22,7 +22,7 @@ QString VirtualPadPlugin::group() const {
   return QStringLiteral("Custom widgets");
 }
 
-QIcon VirtualPadPlugin::icon() const { return QIcon(QLatin1String(":/virtualpad.ico")); }
+QIcon VirtualPadPlugin::icon() const { return QIcon(QLatin1String(":/images/virtualpad.ico")); }
 
 QString VirtualPadPlugin::toolTip() const { return QString(); }
 
@@ -45,7 +45,7 @@ QString VirtualPadPlugin::domXml() const {
          "   <string>Virtual pad/joystick</string>\n"
          "  </property>\n"
          "  <property name=\"whatsThis\" >\n"
-         "   <string>The virtual widget to use inside applications.</string>\n"
+         "   <string>A virtual pad to use inside applications.</string>\n"
          "  </property>\n"
          " </widget>\n"
          "</ui>\n";

@@ -20,7 +20,6 @@
       <x>10</x>
       <y>10</y>
       <width>658</width>
-      <width>658</width>
       <height>389</height>
      </rect>
     </property>
@@ -257,13 +256,18 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QVirtualPad" name="vg" native="true">
+        <widget class="QVirtualPad" name="vg">
          <property name="minimumSize">
           <size>
            <width>400</width>
-           <width>400</width>
            <height>300</height>
           </size>
+         </property>
+         <property name="axis">
+          <enum>QVirtualPad::Both</enum>
+         </property>
+         <property name="marks">
+          <enum>QVirtualPad::Full</enum>
          </property>
         </widget>
        </item>
