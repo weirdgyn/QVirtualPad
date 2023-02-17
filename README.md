@@ -11,6 +11,9 @@ copy these files into your source code folder and then include them in you proje
 15/02/2023 - Update: QVirtualPad now allows to include the source code folder as a subroject trough ```include``` directive.
 Download ```qvirtualpad``` directory into your application source folder and then add ```include (qvirtualpad/qvirtualpad.pri)``` line to your .pro file.
 
+17/02/2023 - Update: QVirtualPad plugin is now working but the distribution of the widget is still based on the source code. If you wish to install the plugin you need to load the ```virtualpadplugin.pro``` file in QtCreator and build it. Pay attention to compile messages since in many cases you can get errors during the plugin installation. This depends on operating system, Qt release, user privilegs and finally on the way you installed Qt and related tools on your system. Anyway at the end of the build phase either you have the plugin installed correctly or, if the installation is gone wrong, you will have a file called ```libvirtualpadplugin.so``` on your build folder. This file must be copied inside the designer plugin folder: where this folder is located depends on the type of Qt installation, if you are using standard system Qt installation on Ubuntu 20.04 the folder is located in: ```/usr/lib/x86_64-linux-gnu/qt5/plugins/designer/```.
+Please note that if your toolchain is different from the toolchain on which is based your QtCreator binary the plugin will probably not be loaded.
+
 To use the widget you simply have to *promote* a widget in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
 You don't need to make the placeholder widget square but to enhance its look & feel ```QVirtualPad``` have beend designed to always _use_ a square footprint (inside assigned widget area).
 Once placed in your UI you can choose between two usage mode:
