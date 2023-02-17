@@ -13,8 +13,12 @@ jobs:
             host: 'linux'
             target: 'desktop'
             dir: '${{ github.workspace }}/'
-      - name: Build
-        run: qmake virtualpadplugin.pro && make
+      - name: Build #1
+        run: qmake virtualpadplugin.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
+      - name: Build #2
+        run: make -f Makefile qmake_all
+      - name: Build #3
+        run: make -j8
       - name: Archive plugin
         uses: actions/upload-artifact@v3
         with:
