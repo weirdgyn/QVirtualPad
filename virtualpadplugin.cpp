@@ -31,7 +31,7 @@ QString VirtualPadPlugin::whatsThis() const { return QString(); }
 bool VirtualPadPlugin::isContainer() const { return false; }
 
 QString VirtualPadPlugin::domXml() const {
-  return "<ui language=\"c++\">\n"
+  return "<ui language=\"c++\" displayname=\"Virtual Pad\">\n"
          " <widget class=\"QVirtualPad\" name=\"virtualPad\">\n"
          "  <property name=\"geometry\">\n"
          "   <rect>\n"
