@@ -91,34 +91,6 @@ void MainWindow::on_padColor_clicked() {
   mColorDialog.show();
 }
 
-void MainWindow::on_backgroundFocusColor_clicked() {
-  mColorDialog.setCurrentColor(ui->vg->backgroundFocusColor());
-
-  auto conn = std::make_shared<QMetaObject::Connection>();
-
-  *conn = connect(
-      &mColorDialog, &QColorDialog::colorSelected, this, [this, conn]() {
-        ui->vg->setBackgroundFocusColor(mColorDialog.currentColor());
-        disconnect(*conn);
-      });
-
-  mColorDialog.show();
-}
-
-void MainWindow::on_padFocusColor_clicked() {
-  mColorDialog.setCurrentColor(ui->vg->padFocalColor());
-
-  auto conn = std::make_shared<QMetaObject::Connection>();
-
-  *conn = connect(&mColorDialog, &QColorDialog::colorSelected, this,
-                  [this, conn]() {
-                    ui->vg->setPadFocalColor(mColorDialog.currentColor());
-                    disconnect(*conn);
-                  });
-
-  mColorDialog.show();
-}
-
 void MainWindow::on_borderwidth_valueChanged(double arg1) {
   ui->vg->setBorderWidth(arg1);
 }
@@ -139,5 +111,35 @@ void MainWindow::on_externalDeadzoneCheckBox_stateChanged(int arg1)
 void MainWindow::on_marks_currentTextChanged(const QString &arg1)
 {
     ui->vg->setMarks(QVirtualPad::StringToMarks(arg1));
+}
+
+void MainWindow::on_padFocalColor_clicked()
+{
+    mColorDialog.setCurrentColor(ui->vg->padFocalColor());
+
+    auto conn = std::make_shared<QMetaObject::Connection>();
+
+    *conn = connect(&mColorDialog, &QColorDialog::colorSelected, this,
+                    [this, conn]() {
+                      ui->vg->setPadFocalColor(mColorDialog.currentColor());
+                      disconnect(*conn);
+                    });
+
+    mColorDialog.show();
+}
+
+void MainWindow::on_backgroundFocalColor_clicked()
+{
+    mColorDialog.setCurrentColor(ui->vg->backgroundFocalColor());
+
+    auto conn = std::make_shared<QMetaObject::Connection>();
+
+    *conn = connect(
+        &mColorDialog, &QColorDialog::colorSelected, this, [this, conn]() {
+          ui->vg->setBackgroundFocalColor(mColorDialog.currentColor());
+          disconnect(*conn);
+        });
+
+    mColorDialog.show();
 }
 

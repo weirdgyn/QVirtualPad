@@ -32,12 +32,12 @@ private slots:
   void on_borderColor_clicked();
   void on_backgroundColor_clicked();
   void on_padColor_clicked();
-  void on_backgroundFocusColor_clicked();
-  void on_padFocusColor_clicked();
   void on_borderwidth_valueChanged(double arg1);
   void on_opacity_valueChanged(double arg1);
   void on_deadZoneRadius_valueChanged(double arg1);
   void on_externalDeadzoneCheckBox_stateChanged(int arg1);
   void on_marks_currentTextChanged(const QString &arg1);
+  void on_padFocalColor_clicked();
+  void on_backgroundFocalColor_clicked();
 };
 #endif // MAINWINDOW_H

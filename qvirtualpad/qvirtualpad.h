@@ -133,22 +133,22 @@ public:
    */
   void setBackgroundColor(const QColor &backgroundColor);
 
-  Q_PROPERTY(QColor backgroundFocusColor READ backgroundFocusColor WRITE
-                 setBackgroundFocusColor NOTIFY backgroundFocusColorChanged)
+  Q_PROPERTY(QColor backgroundFocalColor READ backgroundFocalColor WRITE
+                 setBackgroundFocalColor NOTIFY backgroundFocalColorChanged)
   /**
-   * @brief backgroundFocusColor property getter.
+   * @brief backgroundFocalColor property getter.
    * 
-   * @return QColor backgroundFocusColor value
-   * @see mBackgroundFocusColor
+   * @return QColor backgroundFocalColor value
+   * @see mBackgroundFocalColor
    */
-  QColor backgroundFocusColor() const;
+  QColor backgroundFocalColor() const;
   /**
-   * @brief backgroundFocusColor property setter.
+   * @brief backgroundFocalColor property setter.
    * 
-   * @param backgroundFocusColor new value 
-   * @see mBackgroundFocusColor
+   * @param backgroundFocalColor new value
+   * @see mBackgroundFocalColor
    */
-  void setBackgroundFocusColor(const QColor &backgroundFocusColor);
+  void setBackgroundFocalColor(const QColor &backgroundFocalColor);
 
   Q_PROPERTY(
       QColor padColor READ padColor WRITE setPadColor NOTIFY padColorChanged)
@@ -167,8 +167,8 @@ public:
    */
   void setPadColor(const QColor &padColor);
 
-  Q_PROPERTY(QColor padFocusColor READ padFocusColor WRITE setPadFocusColor
-                 NOTIFY padFocusColorChanged)
+  Q_PROPERTY(QColor padFocalColor READ padFocalColor WRITE setPadFocalColor
+                 NOTIFY padFocalColorChanged)
   /**
   * @brief padFocalColor property getter.
   * 

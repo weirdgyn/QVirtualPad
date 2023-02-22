@@ -497,14 +497,14 @@ void QVirtualPad::setPadColor(const QColor &padColor) {
   repaint();
 }
 
-QColor QVirtualPad::backgroundFocusColor() const {
+QColor QVirtualPad::backgroundFocalColor() const {
   return mBackgroundFocalColor;
 }
 
-void QVirtualPad::setBackgroundFocusColor(const QColor &backgroundSpotColor) {
-  if (mBackgroundFocalColor == backgroundSpotColor)
+void QVirtualPad::setBackgroundFocalColor(const QColor &backgroundFocalColor) {
+  if (mBackgroundFocalColor == backgroundFocalColor)
     return;
-  mBackgroundFocalColor = backgroundSpotColor;
+  mBackgroundFocalColor = backgroundFocalColor;
   emit backgroundFocalColorChanged();
   repaint();
 }
