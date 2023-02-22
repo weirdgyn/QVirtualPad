@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'qvirtualpad/qvirtualpad.*'
+      - '.github/workflows/compile-qt5.9.5-plugin.*'
 jobs:
   build-and-release:
     runs-on: ubuntu-20.04

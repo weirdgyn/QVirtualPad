@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'qvirtualpad/qvirtualpad.*'
+      - '.github/workflows/compile-qt6.4.0-plugin.*'
 jobs:
   build-and-release:
     runs-on: ubuntu-20.04
