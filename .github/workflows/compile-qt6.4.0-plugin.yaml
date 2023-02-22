@@ -1,4 +1,4 @@
-name: compile-qt6-plugin
+name: compile-qt6.4.0-plugin
 run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 6.4.0)
 on: 
   push:
