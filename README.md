@@ -62,7 +62,7 @@ This is the widget running in its associated Qt application.
 - Distribute as library/plugin
 - ~~Integration in _Qt Designer_ (?!)~~
 - Translation
-- Docs (doxygen)
+- ~~Docs (doxygen)~~
 - Add support for stylesheets
 - More features...
 
