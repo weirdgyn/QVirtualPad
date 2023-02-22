@@ -30,6 +30,8 @@ jobs:
               libvirtualpadplugin.so
               README.md
               LICENSE.md
+              Changelog.md
+              docs/latex/refman.pdf              
               qvirtualpad/qvirtualpad.h
               qvirtualpad/qvirtualpad.cpp
               qvirtualpad/qvirtualpad.pri
