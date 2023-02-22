@@ -106,13 +106,13 @@ void MainWindow::on_backgroundFocusColor_clicked() {
 }
 
 void MainWindow::on_padFocusColor_clicked() {
-  mColorDialog.setCurrentColor(ui->vg->padFocusColor());
+  mColorDialog.setCurrentColor(ui->vg->padFocalColor());
 
   auto conn = std::make_shared<QMetaObject::Connection>();
 
   *conn = connect(&mColorDialog, &QColorDialog::colorSelected, this,
                   [this, conn]() {
-                    ui->vg->setPadFocusColor(mColorDialog.currentColor());
+                    ui->vg->setPadFocalColor(mColorDialog.currentColor());
                     disconnect(*conn);
                   });
 

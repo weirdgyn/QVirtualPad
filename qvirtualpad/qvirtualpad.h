@@ -170,19 +170,19 @@ public:
   Q_PROPERTY(QColor padFocusColor READ padFocusColor WRITE setPadFocusColor
                  NOTIFY padFocusColorChanged)
   /**
-  * @brief padFocusColor property getter.
+  * @brief padFocalColor property getter.
   * 
-  * @return QColor padFocusColor value
-  * @see mPadFocusColor 
+  * @return QColor padFocalColor value
+  * @see mPadFocalColor
   */
-  QColor padFocusColor() const;
+  QColor padFocalColor() const;
   /**
-   * @brief padFocusColor property setter.
+   * @brief padFocalColor property setter.
    * 
-   * @param padFocusColor new value
-   * @see mPadFocusColor 
+   * @param padFocalColor new value
+   * @see mPadFocalColor
    */
-  void setPadFocusColor(const QColor &padFocusColor);
+  void setPadFocalColor(const QColor &padFocalColor);
 
   Q_PROPERTY(QColor borderColor READ borderColor WRITE setBorderColor NOTIFY
                  borderColorChanged)
@@ -483,7 +483,7 @@ signals:
    * @brief signal an update in background focal point color.
    * 
    */
-  void backgroundFocusColorChanged();
+  void backgroundFocalColorChanged();
   /**
    * @brief signal an update in pad color.
    * 
@@ -493,7 +493,7 @@ signals:
    * @brief signal an update in pad focal point color.
    * 
    */
-  void padFocusColorChanged();
+  void padFocalColorChanged();
   /**
    * @brief signal an update in border color.
    * 
@@ -603,19 +603,19 @@ private:
   QColor mBackgroundColor;
   /**
    * @brief Background focal color [property].
-   * @see backgroundFocusColor, setBackgroundFocusColor
+   * @see backgroundFocalColor, setBackgroundFocalColor
    */  
-  QColor mBackgroundFocusColor;
+  QColor mBackgroundFocalColor;
   /**
    * @brief Pad color [property].
    * @see padColor, setPadColor
    */    
   QColor mPadColor;
   /**
-   * @brief Pad focus color [property].
-   * @see padFocusColor, setPadFocusColor
+   * @brief Pad focal color [property].
+   * @see padFocalColor, setPadFocalColor
    */    
-  QColor mPadFocusColor;
+  QColor mPadFocalColor;
   /**
    * @brief Border color [property].
    * @see padBorderColor, setBorderColor

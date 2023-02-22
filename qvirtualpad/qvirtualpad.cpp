@@ -5,8 +5,8 @@
 QVirtualPad::QVirtualPad(QWidget *parent)
     : QWidget{parent}, mOpacityEffect(new QGraphicsOpacityEffect(this)),
       mBorderWidth(1), mPadSizeRatio(DEF_PAD_SIZE_RATIO), mMomentary(true),
-      mBackgroundColor(Qt::red), mBackgroundFocusColor(Qt::white),
-      mPadColor(Qt::black), mPadFocusColor(Qt::white), mBorderColor(Qt::black),
+      mBackgroundColor(Qt::red), mBackgroundFocalColor(Qt::white),
+      mPadColor(Qt::black), mPadFocalColor(Qt::white), mBorderColor(Qt::black),
       mAxis(Axis::Both), mOpacity(1), mExternalDeadZone(false), mDeadZone(0),
       mMarks(Marks::None) {
   mClicked = false;
@@ -319,7 +319,7 @@ void QVirtualPad::drawPad(QPainter &painter) {
   QRadialGradient _pad_gradient(mPadPosition,
                                 mWidgetFrame.width() * mPadSizeRatio / 2);
 
-  _pad_gradient.setColorAt(0, mPadFocusColor);
+  _pad_gradient.setColorAt(0, mPadFocalColor);
   _pad_gradient.setColorAt(1, mPadColor);
 
   _pad_gradient.setFocalPoint(
@@ -343,7 +343,7 @@ void QVirtualPad::drawPad(QPainter &painter) {
 void QVirtualPad::drawBackground(QPainter &painter) {
   QRadialGradient _gradient(mWidgetFrame.center(), mWidgetFrame.width() / 2);
 
-  _gradient.setColorAt(0, mBackgroundFocusColor);
+  _gradient.setColorAt(0, mBackgroundFocalColor);
   _gradient.setColorAt(1, mBackgroundColor);
 
   _gradient.setFocalPoint(
@@ -477,13 +477,13 @@ void QVirtualPad::setBorderColor(const QColor &borderColor) {
   repaint();
 }
 
-QColor QVirtualPad::padFocusColor() const { return mPadFocusColor; }
+QColor QVirtualPad::padFocalColor() const { return mPadFocalColor; }
 
-void QVirtualPad::setPadFocusColor(const QColor &padSpotColor) {
-  if (mPadFocusColor == padSpotColor)
+void QVirtualPad::setPadFocalColor(const QColor &padFocalColor) {
+  if (mPadFocalColor == padFocalColor)
     return;
-  mPadFocusColor = padSpotColor;
-  emit padFocusColorChanged();
+  mPadFocalColor = padFocalColor;
+  emit padFocalColorChanged();
   repaint();
 }
 
@@ -498,14 +498,14 @@ void QVirtualPad::setPadColor(const QColor &padColor) {
 }
 
 QColor QVirtualPad::backgroundFocusColor() const {
-  return mBackgroundFocusColor;
+  return mBackgroundFocalColor;
 }
 
 void QVirtualPad::setBackgroundFocusColor(const QColor &backgroundSpotColor) {
-  if (mBackgroundFocusColor == backgroundSpotColor)
+  if (mBackgroundFocalColor == backgroundSpotColor)
     return;
-  mBackgroundFocusColor = backgroundSpotColor;
-  emit backgroundFocusColorChanged();
+  mBackgroundFocalColor = backgroundSpotColor;
+  emit backgroundFocalColorChanged();
   repaint();
 }
 

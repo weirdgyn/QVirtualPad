@@ -26,9 +26,9 @@ You can find an example of the code needed to use this widget in the associated 
 For the sake of documentation this is a complete list of ```QVirtualPad``` widget properties and their usage:
 
 - ```QColor backgroundColor```: is the main color of the background gradient (default: ```Qt::red```).
-- ```QColor backgroundFocusColor```: is the color of the focal point of the background gradient (default: ```Qt::white```). Note if you specify the same color as ```backgroundColor``` you'll get a flat appearance.
+- ```QColor backgroundFocalColor```: is the color of the focal point of the background gradient (default: ```Qt::white```). Note if you specify the same color as ```backgroundColor``` you'll get a flat appearance.
 - ```QColor padColor```: is the main color of the pad gradient (default: ```Qt::black```).
-- ```QColor padFocusColor```: is the color of the focal point of the pad gradient (default: ```Qt::white```). Note if you specify the same color as ```padColor``` you'll get a flat pad appearance.
+- ```QColor padFocalColor```: is the color of the focal point of the pad gradient (default: ```Qt::white```). Note if you specify the same color as ```padColor``` you'll get a flat pad appearance.
 - ```QColor borderColor```: is the color of the external border of both background and pad area (default: ```Qt::black```).
 - ```int borderWidth```: is the thickness of border (default: ```1```).
 - ```float opacity```: is the opacity of the widget itself (```0``` fully transparent ```1``` completely opaque, default) 

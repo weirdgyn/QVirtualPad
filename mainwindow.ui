@@ -147,14 +147,14 @@
         </widget>
        </item>
        <item row="6" column="0">
-        <widget class="QLabel" name="lblBackgroundSpotColor">
+        <widget class="QLabel" name="lblBackgroundFocalColor">
          <property name="text">
-          <string>Background focus color</string>
+          <string>Background focal color</string>
          </property>
         </widget>
        </item>
        <item row="6" column="1">
-        <widget class="QPushButton" name="backgroundFocusColor">
+        <widget class="QPushButton" name="backgroundFocalColor">
          <property name="text">
           <string>Select...</string>
          </property>
@@ -175,14 +175,14 @@
         </widget>
        </item>
        <item row="8" column="0">
-        <widget class="QLabel" name="lblPadFocusColor">
+        <widget class="QLabel" name="lblPadFocalColor">
          <property name="text">
-          <string>Pad focus color</string>
+          <string>Pad focal color</string>
          </property>
         </widget>
        </item>
        <item row="8" column="1">
-        <widget class="QPushButton" name="padFocusColor">
+        <widget class="QPushButton" name="padFocalColor">
          <property name="text">
           <string>Select..</string>
          </property>
@@ -256,18 +256,12 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QVirtualPad" name="vg">
+        <widget class="QVirtualPad" name="vg" native="true">
          <property name="minimumSize">
           <size>
            <width>400</width>
            <height>300</height>
           </size>
-         </property>
-         <property name="axis">
-          <enum>QVirtualPad::Both</enum>
-         </property>
-         <property name="marks">
-          <enum>QVirtualPad::Full</enum>
          </property>
         </widget>
        </item>
