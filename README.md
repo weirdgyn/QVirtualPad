@@ -6,7 +6,7 @@ To use this widget you should download the source code of this repository and th
 - use the class code directly adding  ```qvirtualpad.h ```,  ```qvirtualpad.cpp ``` files to your code;
 - include the class folder adding a  ```include(qvirtualpad/qvirtualpad.pri) ``` directive to your  ```.pro ``` file.
 
-Optionally you can compile the widget plugin to enhance the visual integration experience (load  ```virtualpadplugin.pro ``` file).
+Optionally you can compile the widget plugin to enhance the visual integration experience (load  ```VirtualPad.pro ``` file).
 
 If you have installed succesfully the plugin you can enjoy the full user experience as you can drop QVirtualPad into your form straight form the pallette in QtCreator (or QtDesigner), there you can manage properties as any other widget.
 If you are using QVirtualPad trough source code then you can add the widget to the UI programatically or you have to *promote* a widget _placeholder_ in your UI to ```QVirtualPad``` class (referencing the correct header: ```qvirtualpad.h``` of course).
@@ -21,7 +21,7 @@ Axis ranges uses canonical math convention so x,y are 0 at origin/center of the 
 If you choose the polling method instead you simply have to call ```X()``` and ```Y()``` getters to acquire normalized axis values.
 
 You can customize the look and behaviour of the widget through its properties.
-You can find an example of the code needed to use this widget in the associated Qt application (```virtualpad.pro```).
+You can find an example of the code needed to use this widget in the associated Qt application (```Test.pro```).
 
 For the sake of documentation this is a complete list of ```QVirtualPad``` widget properties and their usage:
 
