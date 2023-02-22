@@ -1,6 +1,9 @@
 name: compile-qt5-plugin
 run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 5.12.8)
-on: [push]
+on:
+  push:
+    paths:
+      - 'qvirtualpad/qvirtualpad.*'
 jobs:
   build-and-release:
     runs-on: ubuntu-20.04
