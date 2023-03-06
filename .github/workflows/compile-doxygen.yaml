@@ -1,0 +1,25 @@
+name: compile-doxygen
+run-name: ${{ github.actor }} Build docs trough doxygen
+on: 
+  push:
+    paths:
+      - 'qvirtualpad/qvirtualpad.*'
+      - 'Doxyfile'
+      - '.github/workflows/compile-doxygen.*'
+jobs:
+  build-and-release:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate doc
+        uses: mattnotmitt/doxygen-action@v1.9.5
+        with:
+          working-directory: 'qvirtualpad/'
+          doxyfile-path: 'Doxyfile'
+          enable-latex: true
+      - name: Archive doc
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: |
+              docs/latex/refman.pdf

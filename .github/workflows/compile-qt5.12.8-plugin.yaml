@@ -1,9 +1,10 @@
-name: compile-qt6-plugin
-run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 6.4.0)
-on: 
+name: compile-qt5.12.8-plugin
+run-name: ${{ github.actor }} Build and Release VirtualPad plugin (Linux + Qt 5.12.8)
+on:
   push:
     paths:
       - 'qvirtualpad/qvirtualpad.*'
+      - '.github/workflows/compile-qt5.12.8-plugin.*'
 jobs:
   build-and-release:
     runs-on: ubuntu-20.04
@@ -12,7 +13,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-            version: '6.4.0'
+            version: '5.12.8'
             host: 'linux'
             target: 'desktop'
             dir: '${{ github.workspace }}/'
@@ -25,13 +26,13 @@ jobs:
       - name: Archive plugin
         uses: actions/upload-artifact@v3
         with:
-          name: qt6-plugin
+          name: qt5-plugin
           path: |
               libvirtualpadplugin.so
               README.md
               LICENSE.md
               Changelog.md
-              docs/latex/refman.pdf
+              docs/latex/refman.pdf              
               qvirtualpad/qvirtualpad.h
               qvirtualpad/qvirtualpad.cpp
               qvirtualpad/qvirtualpad.pri
