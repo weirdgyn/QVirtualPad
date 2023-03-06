@@ -548,7 +548,7 @@ private:
    * The frame is centered in widget area.
    * 
    */
-  QRectF mWidgetFrame;
+  QRectF mFrame;
   /**
    * @brief Store clicking status of widget.
    * 
