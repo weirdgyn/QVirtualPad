@@ -8,9 +8,9 @@ RESOURCES   = icons.qrc
 LIBS        += -L.
 
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += designer gui multimedia svg
+    QT += designer gui
 } else {
-    CONFIG += designer gui multimedia svg
+    CONFIG += designer gui
 }
 
 target.path = $$[QT_INSTALL_PLUGINS]/designer
