@@ -1,14 +1,14 @@
-#ifndef VIRTUALPADPLUGIN_H
-#define VIRTUALPADPLUGIN_H
+#ifndef QVIRTUALPADPLUGIN_H
+#define QVIRTUALPADPLUGIN_H
 
 #include <QtUiPlugin/QDesignerCustomWidgetInterface>
 
-class VirtualPadPlugin : public QObject, public QDesignerCustomWidgetInterface {
+class QVirtualPadPlugin : public QObject, public QDesignerCustomWidgetInterface {
   Q_OBJECT
   Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QDesignerCustomWidgetInterface")
   Q_INTERFACES(QDesignerCustomWidgetInterface)
 public:
-  explicit VirtualPadPlugin(QObject *parent = nullptr);
+  explicit QVirtualPadPlugin(QObject *parent = nullptr);
 
   bool isContainer() const override;
   bool isInitialized() const override;
@@ -26,4 +26,4 @@ private:
   bool initialized = false;
 };
 
-#endif // VIRTUALPADPLUGIN_H
+#endif // QVIRTUALPADPLUGIN_H

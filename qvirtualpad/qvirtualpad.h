@@ -66,8 +66,8 @@ public:
   /**
    * @brief Convert argument into a readable string.
    * 
-   * @param axis 
-   * @return QString 
+   * @param axis value to convert
+   * @return QString value
    * @see Axis
    */
   static QString AxisToString(Axis axis);
@@ -75,15 +75,14 @@ public:
   /**
    * @brief Convert argument string in an Axis value.
    * 
-   * @param axis 
-   * @return Axis 
+   * @param axis value to convert
+   * @return Axis value
    * @see Axis
    */
   static Axis StringToAxis(QString axis);
 
   /**
    * @brief Direction markings.
-   * @see Marks
    */
   enum class Marks { 
     None = 0, /**< No marks */ 
@@ -95,8 +94,8 @@ public:
   /**
    * @brief Convert argument into a readable string.
    * 
-   * @param axis 
-   * @return QString 
+   * @param axis value to convert
+   * @return QString value
    * @see Marks
    */
   static QString MarksToString(Marks axis);
@@ -104,10 +103,37 @@ public:
   /**
    * @brief Convert argument string in a Marks value.
    * 
-   * @param marks 
-   * @return Marks 
+   * @param marks value to convert
+   * @return Marks value
+   * @see Marks
    */
   static Marks StringToMarks(QString marks);
+
+  /**
+   * @brief Working mode.
+   */
+  enum class Mode {
+    Analog,
+    Discrete
+  };
+  Q_ENUM(Mode)
+
+  /**
+   * @brief Convert argument into a readable string.
+   * @param mode value to convert
+   * @return QString value
+   * @see Mode
+   */
+  static QString ModeToString(Mode mode);
+
+  /**
+   * @brief Convert argument string in a Mode value.
+   *
+   * @param mode value to convert
+   * @return Mode value
+   * @see Mode
+   */
+  static Mode StringToMode(QString mode);
 
   /**
    * @brief Construct a new QVirtualPad object
@@ -646,6 +672,11 @@ private:
    * @see marks, setMarks
    */   
   Marks mMarks;
+  /**
+   * @brief mMode Working mode [property].
+   * @see Mode, mode, setMode
+   */
+  bool mMode;
 };
 
 #endif // QVIRTUALPAD_H

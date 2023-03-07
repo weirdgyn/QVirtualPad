@@ -57,7 +57,24 @@ QVirtualPad::Marks QVirtualPad::StringToMarks(QString marks) {
   else if (marks.toLower() == "full")
     return Marks::Full;
   else // if(marks.toLower()=="none")
-      return Marks::None;
+    return Marks::None;
+}
+
+QString QVirtualPad::ModeToString(Mode mode) {
+  switch (mode) {
+  case Mode::Analog:
+    return "Analog";
+  default:
+  case Mode::Discrete:
+    return "Discrete";
+  }
+}
+
+QVirtualPad::Mode QVirtualPad::StringToMode(QString mode) {
+  if (mode.toLower() == "analog")
+    return Mode::Analog;
+  else // if (mode.toLower()=="discrete")
+    return Mode::Discrete;
 }
 
 void QVirtualPad::resizeEvent(QResizeEvent *event) {
@@ -151,8 +168,8 @@ QPainterPath *QVirtualPad::createMark(double angle, QPointF offset) {
   double _scaleX =
       MARKS_SIZE_RATIO * mFrame.width() / _polygon.boundingRect().width();
 
-  double _scaleY = MARKS_SIZE_RATIO * mFrame.height() /
-                   _polygon.boundingRect().height();
+  double _scaleY =
+      MARKS_SIZE_RATIO * mFrame.height() / _polygon.boundingRect().height();
 
   _transform.translate(mFrame.center().x(), mFrame.center().y());
   _transform.translate(offset.x(), offset.y());

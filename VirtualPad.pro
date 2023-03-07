@@ -1,28 +1,19 @@
-QT          += widgets uiplugin
-
-CONFIG += c++11
-
-QTDIR_build {
-# This is only for the Qt build. Do not use externally. We mean it.
-PLUGIN_TYPE = designer
-PLUGIN_CLASS_NAME = VirtualPadPlugin
-load(qt_plugin)
-CONFIG += install_ok
-} else {
-CONFIG      += plugin
+CONFIG      += plugin debug_and_release
+TARGET      = $$qtLibraryTarget(qvirtualpadplugin)
 TEMPLATE    = lib
-TARGET = $$qtLibraryTarget($$TARGET)
 
-target.path = $$[QT_INSTALL_PLUGINS]/designer
-INSTALLS += target
+HEADERS     = qvirtualpadplugin.h
+SOURCES     = qvirtualpadplugin.cpp
+RESOURCES   = icons.qrc
+LIBS        += -L.
 
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += designer gui multimedia svg
+} else {
+    CONFIG += designer gui multimedia svg
 }
 
-HEADERS     = virtualpadplugin.h
-SOURCES     = virtualpadplugin.cpp
-#!
+target.path = $$[QT_INSTALL_PLUGINS]/designer
+INSTALLS    += target
 
-RESOURCES += \
-    icons.qrc
-
-include (qvirtualpad/qvirtualpad.pri)
+include(qvirtualpad/qvirtualpad.pri)

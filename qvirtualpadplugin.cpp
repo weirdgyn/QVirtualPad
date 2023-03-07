@@ -1,36 +1,36 @@
-#include "virtualpadplugin.h"
+#include "qvirtualpadplugin.h"
 #include "qvirtualpad/qvirtualpad.h"
 
-VirtualPadPlugin::VirtualPadPlugin(QObject *parent) : QObject(parent) {}
+QVirtualPadPlugin::QVirtualPadPlugin(QObject *parent) : QObject(parent) {}
 
-void VirtualPadPlugin::initialize(QDesignerFormEditorInterface * /* core */) {
+void QVirtualPadPlugin::initialize(QDesignerFormEditorInterface * /* core */) {
   if (initialized)
     return;
 
   initialized = true;
 }
 
-bool VirtualPadPlugin::isInitialized() const { return initialized; }
+bool QVirtualPadPlugin::isInitialized() const { return initialized; }
 
-QWidget *VirtualPadPlugin::createWidget(QWidget *parent) {
+QWidget *QVirtualPadPlugin::createWidget(QWidget *parent) {
   return new QVirtualPad(parent);
 }
 
-QString VirtualPadPlugin::name() const { return QStringLiteral("QVirtualPad"); }
+QString QVirtualPadPlugin::name() const { return QStringLiteral("QVirtualPad"); }
 
-QString VirtualPadPlugin::group() const {
+QString QVirtualPadPlugin::group() const {
   return QStringLiteral("Custom widgets");
 }
 
-QIcon VirtualPadPlugin::icon() const { return QIcon(QLatin1String(":/images/virtualpad.ico")); }
+QIcon QVirtualPadPlugin::icon() const { return QIcon(QLatin1String(":/images/virtualpad.ico")); }
 
-QString VirtualPadPlugin::toolTip() const { return QString(); }
+QString QVirtualPadPlugin::toolTip() const { return QString(); }
 
-QString VirtualPadPlugin::whatsThis() const { return QString(); }
+QString QVirtualPadPlugin::whatsThis() const { return QString(); }
 
-bool VirtualPadPlugin::isContainer() const { return false; }
+bool QVirtualPadPlugin::isContainer() const { return false; }
 
-QString VirtualPadPlugin::domXml() const {
+QString QVirtualPadPlugin::domXml() const {
   return "<ui language=\"c++\" displayname=\"Virtual Pad\">\n"
          " <widget class=\"QVirtualPad\" name=\"virtualPad\">\n"
          "  <property name=\"geometry\">\n"
@@ -51,6 +51,9 @@ QString VirtualPadPlugin::domXml() const {
          "</ui>\n";
 }
 
-QString VirtualPadPlugin::includeFile() const {
+QString QVirtualPadPlugin::includeFile() const {
   return QStringLiteral("qvirtualpad/qvirtualpad.h");
 }
+#if QT_VERSION < 0x050000
+Q_EXPORT_PLUGIN2(qvirtualpadplugin, QVirtualPadPlugin)
+#endif // QT_VERSION < 0x050000
