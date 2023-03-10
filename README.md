@@ -55,7 +55,8 @@ This is the widget running in its associated Qt application.
 ## Known bugs/missing features
 - ~~External deadzone: this's not working at the moment~~
 - ~~Full marks setting: works as NSWE (missing diagonal directions)~~ 
-- ~~Non square widget area lead to misplaced marks drawings (top or left) and axis values~~.
+- ~~Non square widget area lead to misplaced marks drawings (top or left) and axis values~~
+- Plugin/widget compilation issues on Windows environment
 
 ## TODO
 - ~~Distribute as Qt subproject (.pri)~~
